@@ -1,0 +1,50 @@
+SELECT SYSDATE AS now
+	,SYSDATE-1 AS yesterday
+	,SYSDATE +1 AS tomorrow
+FROM emp;
+
+
+SELECT sysdate, add_months(SYSDATE,3)
+FROM dual;
+
+
+SELECT  empno, ename, hiredate,
+	ADD_MONTHS(hiredate, 12*20) AS work10year
+FROM EMP;
+
+
+SELECT SYSDATE,
+	NEXT_DAY(SYSDATE, 'monday'),
+	LAST_DAY(sysdate)
+from dual;
+
+
+SELECT TO_CHAR(sysdate, 'YYYY/MM/DD HH24:MI:SS') AS current_datetime
+FROM DUAL;
+
+
+SELECT TO_NUMBER('3,300', '999,999') - TO_NUMBER('1,100', '999,999')
+FROM DUAL;
+
+
+SELECT TO_DATE('49/12/10', 'YY/MM/DD') AS YY_YEAR_49
+		, TO_DATE('49/12/10', 'RR/MM/DD') AS RR_YEAR_49
+FROM DUAL;
+
+
+SELECT EMPNO, ENAME, JOB, SAL
+		, DECODE(JOB,
+					'MANAGER', SAL*0.2,
+					'SALESMAN', SAL*0.3,
+					'ANALYST', SAL*0.05,
+					SAL*0.1) AS BONUS
+FROM EMP;
+
+
+SELECT *
+FROM EMP, DEPT 
+ORDER BY EMPNO;
+
+
+
+
